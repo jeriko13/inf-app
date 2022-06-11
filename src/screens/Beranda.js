@@ -26,12 +26,12 @@ export default function Beranda() {
   
     const checkInfo = () => {
       try {
-        Axios.get(`${API_URL}/api/list/t_kegiatan?start=1`)
+        Axios.get(`${API_URL}/api/list/t_informasi?start=1`)
           .then(res => {
           console.log(res.data);
             const data = res.data;
            setTotalRecordCount(data.totalRecordCount);
-            setDataInformasi(data.t_kegiatan);
+            setDataInformasi(data.t_informasi);
             console.log(data);
           })
           .catch(function (error) {
@@ -46,9 +46,9 @@ export default function Beranda() {
     const handlePagination = (btn) => { 
       if (btn == "next") {
         try {
-          Axios.get(`${API_URL}/api/list/t_kegiatan?start=${startPage + 7}`)
+          Axios.get(`${API_URL}/api/list/t_informasi?start=${startPage + 7}`)
             .then(res => {
-              const data = res.data.t_kegiatan;
+              const data = res.data.t_informasi;
               console.log(data);
               setDataInformasi(data);
               setStartPage(startPage + 7 );
@@ -63,9 +63,9 @@ export default function Beranda() {
         }
       } else {
         try {
-          Axios.get(`${API_URL}/api/list/t_kegiatan?start=${startPage - 7}`)
+          Axios.get(`${API_URL}/api/list/t_informasi?start=${startPage - 7}`)
             .then(res => {
-              const data = res.data.t_kegiatan;
+              const data = res.data.t_informasi;
               console.log(data);
               setDataInformasi(data);
               setStartPage(startPage - 7 );
@@ -253,23 +253,18 @@ export default function Beranda() {
               {dataInformasi.map( hasil => {
                         return(
 
-                  // <a href={`/informasi/${hasil.kegiatan_id}`} 
-                  // className="w-full md:w-4/12 px-2 mr-auto ml-auto" type="button"
-                  // >    
+                  <a href={`/informasi/${hasil.kegiatan_id}`} 
+                  className="w-full md:w-4/12 px-2 mr-auto ml-auto" type="button"
+                  >    
             
-                  <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-cyan-400">
+                  <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-cyan-500">
                   
                         <img
-                      // alt="..."
-                       src ={`https://drive.google.com/uc?export=view&id=1ucMUeMIuOKNUp4IRQJgioP1ghA2CTZCO`} 
-                      style={{
-                        height:400,
-                        width:1200
-                      }}
-                      className="w-full align-middle rounded-t-lg"
+                      alt="..."
+                      src={`https://inf.co.id/inf_backoffice/images/${hasil.gambar.name}`}
                       
+                      className="w-full align-middle rounded-t-lg"
                     />
-
                     <blockquote className="relative p-8 mb-4">
                       <svg
                         preserveAspectRatio="none"
@@ -277,32 +272,30 @@ export default function Beranda() {
                         viewBox="0 0 583 95"
                         className="absolute left-0 w-full block h-95-px -top-94-px"
                       >
-                        {/* <polygon
+                        <polygon
                           points="-30,95 583,95 583,65"
                           className="text-cyan-500 fill-current"
-                        ></polygon> */}
-                        
+                        ></polygon>
                       </svg>
 
                   
                       <h4 className="text-xl font-bold text-white">
       
-                     
-                          <p> {hasil.opd} </p>
+                          
+                          <p> {hasil.judul.slice(0,50)}... </p>
+                          <p> {hasil.lokasi}  </p>
+                          <p> {hasil.tanggal} </p>
                       
                      </h4>  
                   
-                      <p className="text-md font-light mt-2 text-white"> 
-                       {hasil.kegiatan}
-                       </p>
-                       <p className="text-md font-light mt-2 text-white"> {hasil.lokasi}</p>
-                       <p className="text-md font-light mt-2 text-white"> {hasil.tanggal}</p>
-                      
-                  
+                      <p className="text-md font-light mt-2 text-white">
+                        
+                       {hasil.informasi.slice(0,50)}...
+                      </p>
                   
                     </blockquote>
                   </div>
-                  // </a>
+                   </a>
 
                 )
                 })}
@@ -344,94 +337,10 @@ export default function Beranda() {
           </section>
   
        
-{/*                     
-                    <h2 className="text-center font-semibold text-2xl text-blue-800 mb-16 underline underline-offset-8">Halaman Berita</h2>
-                    <div className="w-full mb-10 md:flex-1 flex items-center sm:items-stretch justify-center flex-col sm:flex-row">
-                        <img src="https://drive.google.com/uc?export=view&id=1jWUBWsxOLb_iiFw0IC7orEzBIDyfg23S" className="h-auto w-6/12 mb-8 sm:mb-0 sm:w-4/12 mx-auto" alt="img"/>
-                        <div className="w-full sm:w-6/12 text-center sm:text-left p-4 sm:p-6 flex flex-col justify-center bg-slate-100">
-                        <h1 className="text-blue-800 font-semibold text-lg md:text-xl mb-2">Perlu Pengetatan Perda Burung di Banjarmangu, Ini Penjelasan Warga:</h1>
-                            <ul className="text-base md:text-lg">
-                           <p>Sejumlah pemuda dan petani di Desa Banjarmangu, Kecamatan Banjarmangu, Kabupaten Banjarnegara sepakat untuk lebih mengetatkan penerapan Peraturan Daerah Nomor 19 tahun 2015 terkait perlindungan beberapa jenis burung sebagai upaya untuk menjaga ekosistem alam.
 
-Beberapa jenis burung memang sangat dibutuhkan petani dalam memberantas hama pada lahan pertanian. Namun hanya jenis burung tertentu yang dilarang untuk diburu dengan cara tradisional maupun jebakan.
-
-Untuk itu, para petani dan pemuda di Desa Banjarmangu melakukan pemasangan banner terkait dukungan terhadap konservasi burung tertentu.
-
-“Kami sangat setuju dengan penerapan Perda ini, sebab sesuai dengan aturan tersebut, adanya larangan perburuan burung dalam Perda sangat menguntungkan petani, khususnya jenis burung tertentu pemakan hama tikus, belalang, maupun hama lainnya,” kata Sabar petani Dusun Pekuncen, Desa Banjarmangu.
-
-Menurutnya, jenis burung Tyto Alba (burung hantu putih) keberadaanya sangat dibutuhkan petani. </p>
-                            </ul>
-                        </div>
-                    </div> */}
-{/* 
-                    <div id="instafeed-container"></div>
-   
-   
-   
-   <script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
-   <script type="text/javascript">
-   var userFeed = new Instafeed({
-    get: 'user',
-    target: "instafeed-container",
-       resolution: 'low_resolution',
-    accessToken: 'IGQVJWODU0OTYwMkNnQ3RZAUjJxRzFsNi1DV05hbGFJNnVUYjh5NTd6NXNYT3RaWmhZAQjZAOS3JpeUE2c3RyYXMwSlB1OXBQdnF4ekE1aVVhTzFuY09Yek5oc0ZA3WmlubmNkMXpPVzln'
-   });
-   userFeed.run();
-   </script> */}
-                </div>
+            </div>
             </div>
         
-
-        {/* berita terbaru
-        <div className="w-full mx-auto mb-10">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center mb-8">
-                    <div className="bg-blue-800 h-1 rounded-full flex-1 opacity-50"></div>
-                    <h1 className="font-semibold text-2xl text-blue-800 mx-4">Berita Terbaru</h1>
-                    <div className="bg-blue-800 h-1 rounded-full flex-1 opacity-50"></div>
-                </div>
-                <div className="flex justify-between mt-4 items-stretch flex-wrap">
-                    <div className="bg-blue-50 w-full mb-4 md:mb-0 md:flex-1 mx-2 rounded-md shadow-lg relative overflow-hidden">
-                        <img className="w-full h-auto" src={process.env.PUBLIC_URL + '/assets/images/bg-busy-computer.jpg'} alt="Workflow" />
-                        <div className="p-4 ">
-                        <h1 className="font-medium text-base text-gray-900">Judul</h1>
-                        <span className="bg-blue-0 text-gray-600 text-sm">Lorem Ipsum</span>
-                        <h1 className="font-normal text-base to-gray-800 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum suscipit provident maiores eligendi totam hic assumenda iste laborum omnis id, ut accusantium minus harum!</h1>
-                        </div>
-                    </div>
-                    <div className="bg-blue-50 w-full mb-4 md:mb-0 md:flex-1 mx-2 rounded-md shadow-lg relative overflow-hidden">
-                        <img className="w-full h-auto" src={process.env.PUBLIC_URL + '/assets/images/bg-busy-computer.jpg'} alt="Workflow" />
-                        <div className="p-4 ">
-                        <h1 className="font-medium text-base text-gray-900">Judul</h1>
-                        <span className="bg-blue-0 text-gray-600 text-sm">Lorem Ipsum</span>
-                        <h1 className="font-normal text-base to-gray-800 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum suscipit provident maiores eligendi totam hic assumenda iste laborum omnis id, ut accusantium minus harum!</h1>
-                        </div>
-                    </div>
-                    <div className="bg-blue-50 w-full mb-4 md:mb-0 md:flex-1 mx-2 rounded-md shadow-lg relative overflow-hidden">
-                        <img className="w-full h-auto" src={process.env.PUBLIC_URL + '/assets/images/bg-busy-computer.jpg'} alt="Workflow" />
-                        <div className="p-4 ">
-                        <h1 className="font-medium text-base text-gray-900">Judul</h1>
-                        <span className="bg-blue-0 text-gray-600 text-sm">Lorem Ipsum</span>
-                        <h1 className="font-normal text-base to-gray-800 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum suscipit provident maiores eligendi totam hic assumenda iste laborum omnis id, ut accusantium minus harum!</h1>
-                        </div>
-                    </div>
-                    <div className="bg-blue-50 w-full mb-4 md:mb-0 md:flex-1 mx-2 rounded-md shadow-lg relative overflow-hidden">
-                        <img className="w-full h-auto" src={process.env.PUBLIC_URL + '/assets/images/bg-busy-computer.jpg'} alt="Workflow" />
-                        <div className="p-4 ">
-                        <h1 className="font-medium text-base text-gray-900">Judul</h1>
-                        <span className="bg-blue-0 text-gray-600 text-sm">Lorem Ipsum</span>
-                        <h1 className="font-normal text-base to-gray-800 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum suscipit provident maiores eligendi totam hic assumenda iste laborum omnis id, ut accusantium minus harum!</h1>
-                        </div>
-                    </div>
-                </div>
-                <div className="flex items-center mt-8">
-                    <div className="bg-blue-800 h-1 rounded-full flex-1 opacity-50"></div>
-                    <a href className="text-center font-medium text-md bg-blue-800 text-white block w-40 h-10 leading-10 mx-4 rounded-md">Berita Lainnya</a>
-                    <div className="bg-blue-800 h-1 rounded-full flex-1 opacity-50"></div>
-                </div>
-            </div>
-        </div>
-        */}
         <Footer/>
     </>
     )
