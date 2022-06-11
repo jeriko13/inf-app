@@ -302,11 +302,11 @@ export default function Beranda() {
    
                 
                 {
-                  (totalRecordCount - startPage < 7) ? <button onClick={() => handlePagination('prev')} className="bg-cyan-500 text-black active:bg-cyan-600 font-bold uppercase text-xs px-4 py-2 flex-auto rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  (totalRecordCount - startPage < 7) ? <button onClick={() => handlePagination('prev')} className="bg-cyan-500 text-white active:bg-cyan-600 font-bold uppercase text-xs px-4 py-2 flex-auto rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                   type="button">Prev</button> : ""
                 }
               {
-                  (startPage == 1) ? <button onClick={() => handlePagination('next')} className="bg-cyan-500 text-black active:bg-cyan-600 font-bold uppercase text-xs px-4 py-2 flex-auto rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  (startPage == 1) ? <button onClick={() => handlePagination('next')} className="bg-cyan-500 text-white active:bg-cyan-600 font-bold uppercase text-xs px-4 py-2 flex-auto rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                   type="button" >Next</button> : ""
                 }
               

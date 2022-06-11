@@ -3,6 +3,13 @@ import Footer from "../layouts/Footer";
 import NavBar from "../layouts/NavBar";
 import Axios from 'axios';
 import {API_URL} from '../config/config';
+import { Disclosure } from '@headlessui/react'
+import { ChevronUpIcon } from '@heroicons/react/solid'
+
+import CanvasTitle from "../layouts/CanvasTitle";
+
+import NavBarStatic from "../layouts/NavBarStatic";
+
 import {
   BrowserRouter as Router,
 //   Switch,
@@ -102,23 +109,11 @@ export default function Informasi() {
   }
     return (
     <>
-        <NavBar/>
+           <NavBarStatic/>
         <main>
-          <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
-            <div
-              className="absolute top-0 w-full h-full bg-center bg-cover"
-              style={{
-                backgroundImage:
-                "url('https://drive.google.com/uc?export=view&id=1n2PSIIUUZ_Fh8MhPr0LcDlLiZWBMH_ZM')",
-                  
-              }}
-            >
-              <span
-                id="blackOverlay"
-                className="w-full h-full absolute opacity-75 bg-black"
-              ></span>
-            </div>
-            
+         
+        <CanvasTitle judul="INFORMASI" deskripsi="Kegiatan Infomedia Technology"/>
+        <div className="w-full bg-slate-50 py-6 mb-10" style={{ backgroundImage: "" }}>
             <div
               className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
               style={{ transform: "translateZ(0)" }}
