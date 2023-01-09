@@ -46,16 +46,18 @@ export default function Portfolio() {
                             <Disclosure>
                             {({ open }) => (
                                 <>
-                                <Disclosure.Button className="flex justify-between w-full px-4 py-4 text-base font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75 my-2">
-                                    <span>{data.title}</span>
+                                <Disclosure.Button className="flex justify-between w-full px-4 py-4 text-base font-medium text-left text-blue-900 bg-blue-100 rounded-lg hover:bg-blue-200 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75 my-2">
+                                    <span className="text-light-blue-400">{data.title}</span>
+
                                     <ChevronUpIcon
                                     className={`${
                                         open ? 'transform rotate-180' : ''
-                                    } w-5 h-5 text-purple-500 transition-transform`}
+                                    } w-5 h-5 text-blue-500 transition-transform`}
                                     />
                                 </Disclosure.Button>
                                 <Disclosure.Panel className="px-4 py-2 pt-4 pb-2 text-base text-gray-500">
-                                    {data.description}
+                                    <span className="text-light-blue-400">{data.title}</span>
+
                                 </Disclosure.Panel>
                                 </>
                             )}

@@ -7,7 +7,7 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
   { name: 'Portfolio', href: '/portfolio' },
-  { name: 'Informasi', href: '/informasi' },
+//   { name: 'Informasi', href: '/informasi' },
   { name: 'About Us', href: '/about' },
 ]
 

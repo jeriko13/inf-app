@@ -26,12 +26,12 @@ export default function Beranda() {
   
     const checkInfo = () => {
       try {
-        Axios.get(`${API_URL}/api/list/t_informasi?start=1`)
+        Axios.get(`${API_URL}/api/list/t_kegiatan?start=1`)
           .then(res => {
           console.log(res.data);
             const data = res.data;
            setTotalRecordCount(data.totalRecordCount);
-            setDataInformasi(data.t_informasi);
+            setDataInformasi(data.t_kegiatan);
             console.log(data);
           })
           .catch(function (error) {
@@ -46,9 +46,9 @@ export default function Beranda() {
     const handlePagination = (btn) => { 
       if (btn == "next") {
         try {
-          Axios.get(`${API_URL}/api/list/t_informasi?start=${startPage + 7}`)
+          Axios.get(`${API_URL}/api/list/t_kegiatan?start=${startPage + 7}`)
             .then(res => {
-              const data = res.data.t_informasi;
+              const data = res.data.t_kegiatan;
               console.log(data);
               setDataInformasi(data);
               setStartPage(startPage + 7 );
@@ -63,9 +63,9 @@ export default function Beranda() {
         }
       } else {
         try {
-          Axios.get(`${API_URL}/api/list/t_informasi?start=${startPage - 7}`)
+          Axios.get(`${API_URL}/api/list/t_kegiatan?start=${startPage - 7}`)
             .then(res => {
-              const data = res.data.t_informasi;
+              const data = res.data.t_kegiatan;
               console.log(data);
               setDataInformasi(data);
               setStartPage(startPage - 7 );
@@ -260,8 +260,10 @@ export default function Beranda() {
                   <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-cyan-500">
                   
                         <img
-                      alt="..."
-                      src={`https://inf.co.id/inf_backoffice/images/${hasil.gambar.name}`}
+                      alt=""
+                      // src={`https://inf.co.id/inf_backoffice/images/${hasil.gambar.name}`}
+                      // src={`https://drive.google.com/uc?export=view&id=1YPFTA05H6ArsIINEBQGWOvHLxsmVFG_K`}
+                      src={`${hasil.gambar}`}
                       
                       className="w-full align-middle rounded-t-lg"
                     />
@@ -282,7 +284,7 @@ export default function Beranda() {
                       <h4 className="text-xl font-bold text-white">
       
                           
-                          <p> {hasil.judul.slice(0,50)}... </p>
+                          <p> {hasil.opd} </p>
                           <p> {hasil.lokasi}  </p>
                           <p> {hasil.tanggal} </p>
                       
@@ -290,7 +292,7 @@ export default function Beranda() {
                   
                       <p className="text-md font-light mt-2 text-white">
                         
-                       {hasil.informasi.slice(0,50)}...
+                       {hasil.kegiatan}
                       </p>
                   
                     </blockquote>

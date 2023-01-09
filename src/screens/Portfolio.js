@@ -1,8 +1,49 @@
 import CanvasTitle from "../layouts/CanvasTitle";
 import Footer from "../layouts/Footer";
 import NavBarStatic from "../layouts/NavBarStatic";
+import React, {useState, useEffect} from "react";
+// import NavBar from "../layouts/NavBar";
+import Axios from 'axios';
+import {API_URL} from '../config/config';
 
-export default function Portfolio() {
+  import {
+    // BrowserRouter,
+    // Switch,
+    // Route,
+    // Link,
+    useParams,
+  } from "react-router-dom";
+  
+
+  // import Navbar from "components/Navbars/AuthNavbar.js";
+  
+  
+  export default function Portfolio() {
+    let { id } = useParams();
+  
+    const [dataInformasi, setDataInformasi] = useState([]);
+  
+    useEffect(() => {
+      checkInfo();
+    }, []);
+  
+    const checkInfo = () => {
+        console.log(id);
+        try {
+          Axios.get(`${API_URL}/api/list/t_kegiatan`)
+            .then((res) => {
+              const data = res.data;
+              setDataInformasi(data.t_kegiatan);
+              console.log(data);
+            })
+            .catch(function (error) {
+              // handle error
+              console.log(error);
+            });
+        } catch (error) {
+          console.log(error);
+        }
+      };
     return (
     <>
         <NavBarStatic/>
@@ -41,63 +82,46 @@ export default function Portfolio() {
                                             >
                                                 Lokasi
                                             </th>
-                                            <th
+                                            {/* <th
                                                 scope="col"
                                                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                             >
                                                 Pemberi Tugas
-                                            </th>
+                                            </th> */}
                                             <th
                                                 scope="col"
                                                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                             >
-                                                Tahun
+                                                Tanggal
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody className="bg-white divide-y divide-gray-200">
-                                        <tr>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                1
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                Pengembangan website www.purworejo.go.id
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                Web Portal Purworejo, mail server, co-location server, entry data
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                Kabupaten Purworejo
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                Bidang Data Elektronik, BIKOM. Purworejo
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                2007
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                2
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                Sistem Informasi Perijinan Kab. Purworejo
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                SIMTAP
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                Kabupaten Purworejo
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                Kantor Pelayanan Modal Perijinan Terpadu (KPMPT)
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-xs">
-                                                2007
-                                            </td>
-                                        </tr>
+                                    <tbody>
+                        {/* {dataList1.sort((a, b) => parseInt(b.tahun.split('/')[0]) - parseInt(a.tahun.split('/')[0])).map((item, key) =>  */}
+                        {dataInformasi.map((item, key) => (
+                          <tr>
+                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                              {item.kegiatan_id}
+                            </td>
 
-                                    </tbody>
+                            
+                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                              {item.kegiatan}
+                            </td>
+                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                              {item.opd}
+                            </td>
+                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                              {item.lokasi}
+                            </td>
+                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                              {item.tanggal}
+                            </td>
+                            
+                          </tr>
+                          
+                        ))}
+                      </tbody>
                                 </table>
                             </div>
                             </div>
