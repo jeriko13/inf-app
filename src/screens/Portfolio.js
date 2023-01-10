@@ -22,15 +22,20 @@ import {API_URL} from '../config/config';
     let { id } = useParams();
   
     const [dataInformasi, setDataInformasi] = useState([]);
-  
     useEffect(() => {
+      // Mengurutkan dataInformasi berdasarkan tanggal secara ascending
+      dataInformasi.sort((a, b) => b.tanggal - a.tanggal);
+    }, [dataInformasi]);
+    
+    useEffect(() => {
+      
       checkInfo();
     }, []);
   
     const checkInfo = () => {
         console.log(id);
         try {
-          Axios.get(`${API_URL}/api/list/t_kegiatan`)
+          Axios.get(`${API_URL}/api/list/t_kegiatan?pageno=1&recperpage=all`)
             .then((res) => {
               const data = res.data;
               setDataInformasi(data.t_kegiatan);
@@ -44,6 +49,8 @@ import {API_URL} from '../config/config';
           console.log(error);
         }
       };
+      
+
     return (
     <>
         <NavBarStatic/>
@@ -92,19 +99,19 @@ import {API_URL} from '../config/config';
                                                 scope="col"
                                                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                             >
-                                                Tanggal
+                                                Tahun
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                         {/* {dataList1.sort((a, b) => parseInt(b.tahun.split('/')[0]) - parseInt(a.tahun.split('/')[0])).map((item, key) =>  */}
-                        {dataInformasi.map((item, key) => (
+                        
+                        {/* {dataInformasi.map((item, key) => ( */}
+                          {dataInformasi.sort((a, b) => b.tanggal - a.tanggal).map((item, key) => (
                           <tr>
                              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                               {item.kegiatan_id}
                             </td>
-
-                            
                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                               {item.kegiatan}
                             </td>
@@ -115,9 +122,8 @@ import {API_URL} from '../config/config';
                               {item.lokasi}
                             </td>
                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                              {item.tanggal}
+                              {new Date(item.tanggal).getFullYear()}
                             </td>
-                            
                           </tr>
                           
                         ))}

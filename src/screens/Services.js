@@ -13,19 +13,12 @@ const dataServices = [
 {
     title : "Management Information System (MIS)",
     description : "Pengembangan Sistem Informasi pada banyak perusahaan, sekarang ini memasuki masa yang kritis. Persaingan tingkat global pada saat ini telah dialami perusahaan-perusahaan di wilayah Asia. Dengan demikian, akan semakin terasa bahwa otomatisasi perusahaan sebagai bagian dari masyarakat bisnis modern menjadi semakin mendesak. Oleh karena itu, pembuatan sistem informasi yang baik menjadi bagian yang tak terpisahkan dalam proses otomatisasi tersebut."
-},    
-{
-    title : "Jaringan Komputer (Networking Installation)",
-    description : "Merupakan jasa integrasi komputer-komputer di perkantoran, sehingga antara satu komputer dengan komputer lainnya dapat saling berbagi data, informasi dan hardware. Hal ini sangat penting bagi suatu perusahaan, karena adanya keterkaitan yang erat antara satu bagian dalam perusahaan dengan bagian lainnya, sehingga adanya suatu kebutuhan untuk saling membagi data antara satu komputer dengan lainnya. Dalam hal hardware, dengan adanya jaringan komputer ini, maka setiap komputer dapat berbagi hardware dengan komputer lainnya. Sehingga hal ini akan dapat meminimalisir pengeluaran perusahaan untuk pembelian hardware komputer. Konsep desain jaringan komputer akan disesuaikan dan menyatu dengan desain gedung, sehingga tidak mengurangi faktor estetika. Sistem pengkabelan akan dikemas sedemikian rupa sehingga tidak menggangu pandangan dan aktifitas serta terhindar dari kerusakan."
-},    
+},      
 {
     title : "Geographic Information System (GIS)",
     description : "Suatu GIS, dapat membantu perusahaan untuk memetakan berbagai sumber daya yang dimilikinya. Lebih lanjut, sumber daya tersebut dapat dimanfaatkan sebesar-besarnya guna kemajuan perusahaan. Konsentrasi GIS adalah memanfaatkan basis data spasial yang dalam implementasinya dapat berhubungan dengan basis data MIS, misalnya data aset suatu perusahaan berdasarkan lokasi ataupun data pelanggan yang tersebar di berbagai tempat."
 },    
-{
-    title : "Hardware & Maintenance",
-    description : "CV. INFOMEDIA TECHNOLOGY juga menyediakan pelayanan untuk pengadaan hardware komputer dan perlengkapan pendukung lainnya. CV. INFOMEDIA TECHNOLOGY dapat sekaligus menjadi konsultan untuk menentukan hardware apa saja yang terbaik dan dibutuhkan perusahaan berikut instalasi dan perawatan dari komputer-komputer tersebut."
-},    
+   
 {
     title : "Jasa Pelatihan dan konsultasi di bidang Sistem Informasi berbasis Komputer",
     description : "Tidak dapat dipungkiri bahwa sampai saat ini masih sedikit orang yang memiliki penguasaan yang baik dalam bidang sistem informasi berbasis komputer, tidak terkecuali perusahaan-perusahaan, baik dalam skala kecil maupun menengah, belum didukung oleh tenaga ahli di bidang ini. Untuk menjawab tantangan bisnis untuk dapat memenangkan persaingan, CV. INFOMEDIA TECHNOLOGY menyediakan layanan jasa sebagai konsultan di bidang teknologi informasi, yang akan membantu client memberikan masukan dan saran untuk dapat membantu proses kerja sehari-hari. Selain itu, CV. INFOMEDIA TECHNOLOGY juga menyediakan jasa pelatihan/training untuk karyawan-karyawan di suatu perusahaan, sehingga mempunyai kemampuan yang cukup untuk dapat menjalankan suatu keterampilan tertentu di bidang teknologi informasi."
