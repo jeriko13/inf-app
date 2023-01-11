@@ -34,10 +34,10 @@ export default function Footer() {
             <div className="mb-4">
                 <h1 className="font-medium mb-2">Menu</h1>
                 <div className="flex flex-col space-y-1">
-                    <a href="i">Home</a>
-                    <a href="i">Services</a>
-                    <a href="i">Portfolio</a>
-                    <a href="i">About</a>
+                    <a href="/">Home</a>
+                    <a href="/services">Services</a>
+                    <a href="/portfolio">Portfolio</a>
+                    <a href="/about">About</a>
                 </div>
             </div>
         </div>
