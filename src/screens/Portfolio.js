@@ -62,45 +62,26 @@ import {API_URL} from '../config/config';
                         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                <table className="min-w-full divide-y divide-gray-200">
+                                <table className="min-w-full divide-y divide-gray-200 text-left ml-auto">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th
-                                                scope="col"
-                                                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                            >
+                                       
+                                            <th scope="col" className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 No
                                             </th>
-                                            <th
-                                                scope="col"
-                                                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                            >
-                                                Nama Paket Pekerjaan
-                                            </th>
-                                            <th
-                                                scope="col"
-                                                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                            >
-                                                Bidang / Sub Bidang Pekerjaan
-                                            </th>
-                                            <th
-                                                scope="col"
-                                                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                            >
-                                                Lokasi
-                                            </th>
-                                            {/* <th
-                                                scope="col"
-                                                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                            >
-                                                Pemberi Tugas
-                                            </th> */}
-                                            <th
-                                                scope="col"
-                                                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                            >
+                                            <th scope="col" className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Tahun
                                             </th>
+                                            <th scope="col" className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Nama Paket Pekerjaan
+                                            </th>
+                                            <th scope="col" className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Bidang / Sub Bidang Pekerjaan
+                                            </th>
+                                            <th scope="col" className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Lokasi
+                                            </th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -109,21 +90,22 @@ import {API_URL} from '../config/config';
                         {/* {dataInformasi.map((item, key) => ( */}
                           {dataInformasi.sort((a, b) => b.tanggal - a.tanggal).map((item, key) => (
                           <tr>
-                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                              {item.kegiatan_id}
+                            <td className="px-2 py-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                            {key + 1}
                             </td>
-                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                              {item.kegiatan}
+                            <td className="px-2 py-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                            {new Date(item.tanggal).getFullYear()}
                             </td>
-                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                              {item.opd}
+                            <td className="px-2 py-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                            {item.kegiatan}
                             </td>
-                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                              {item.lokasi}
+                            <td className="px-2 py-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                            {item.opd}
                             </td>
-                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                              {new Date(item.tanggal).getFullYear()}
+                            <td className="px-2 py-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                            {item.lokasi}
                             </td>
+                           
                           </tr>
                           
                         ))}
